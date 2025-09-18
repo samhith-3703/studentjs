@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Search</title>
+  <title>Student Search by ID</title>
 </head>
 <body>
-    <h2>Student Search Project</h2>
-    Student Name:<input type="text" id="searchName" placeholder="Enter student name">
-    <br><br>
-    <button onclick="searchstudent()">Search</button>
-    <h3>student details</h3>
+  <h2>Search Student by ID</h2>
 
-    <table border="1" id="studentTable">
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-        </tr>
-    </table>
-   <script src="student.js"></script>
-</body>
-</html> 
-    
+  <!-- Input for ID -->
+  <input type="text" id="searchId" placeholder="Enter Student ID">
+  <button onclick="searchstudent()">Search</button>
+
+  <br><br>
+
+  <!-- Table for showing results -->
+  <table border="1" id="studentTable">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+  </table>
+
+  <!-- Link external JS -->
+  <script src="student.js"></script>
 </body>
 </html>
