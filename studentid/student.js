@@ -1,6 +1,5 @@
- 
-// Fixed student array: [id, name, email]
-let students = [
+// Student list
+var students = [
   [1, "Rohit", "rohit@mail.com"],
   [2, "Anita", "anita@mail.com"],
   [3, "Vikram", "vikram@mail.com"],
@@ -8,10 +7,10 @@ let students = [
 ];
 
 function searchstudent() {
-  let name = document.getElementById("searchName").value;
-  let table = document.getElementById("studentTable");
+  var inputId = document.getElementById("searchId").value;
+  var table = document.getElementById("studentTable");
 
-  // clear old table rows (except header)
+  // reset table with only header
   table.innerHTML = `
     <tr>
       <th>ID</th>
@@ -20,23 +19,20 @@ function searchstudent() {
     </tr>
   `;
 
-  // find matching student(s)
-  let found = false;
-  for (let i = 0; i < students.length; i++) {
-    if (students[i][1].toLowerCase() === name.toLowerCase()) {
-      let row = table.insertRow();
-      row.insertCell(0).innerHTML = students[i][0];
-      row.insertCell(1).innerHTML = students[i][1];
-      row.insertCell(2).innerHTML = students[i][2];
-      found = true;
-    }
-  }
+  // find student
+  var found = students.filter(function(student) {
+    return student[0].toString() === inputId;
+  });
 
-  // if no student found
-  if (!found) {
-    let row = table.insertRow();
-    let cell = row.insertCell(0);
+  if (found.length > 0) {
+    var row = table.insertRow();
+    row.insertCell(0).textContent = found[0][0];
+    row.insertCell(1).textContent = found[0][1];
+    row.insertCell(2).textContent = found[0][2];
+  } else {
+    var row = table.insertRow();
+    var cell = row.insertCell(0);
     cell.colSpan = 3;
-    cell.innerHTML = "Student not found";
+    cell.textContent = "Student not found";
   }
 }
